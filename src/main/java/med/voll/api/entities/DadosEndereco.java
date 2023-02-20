@@ -3,7 +3,7 @@ package med.voll.api.entities;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosEnreco(
+public record DadosEndereco(
         @NotBlank
         String logradouro,
         @NotBlank
