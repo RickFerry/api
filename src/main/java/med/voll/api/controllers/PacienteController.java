@@ -10,6 +10,9 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("pacientes")
@@ -20,25 +23,21 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
-    public void cadastro(@RequestBody @Valid DadosCadastroPaciente dados) {
-        pacienteRepository.save(new Paciente(dados));
+    public ResponseEntity cadastro(@RequestBody @Valid DadosCadastroPaciente dados, UriComponentsBuilder uriComponentsBuilder) {
+        Paciente paciente = new Paciente(dados);
+        pacienteRepository.save(paciente);
+        URI uri = uriComponentsBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoPaciente(paciente));
     }
 
     @GetMapping
     public ResponseEntity<Page<DadosListagemPaciente>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-        var page = pacienteRepository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
-        return ResponseEntity.ok(page);
+        return ResponseEntity.ok(pacienteRepository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new));
     }
 
     @GetMapping("/ativos")
-    public Page<DadosListagemPaciente> ListarAtivos(@PageableDefault(size = 10, sort = {"nome"}) Pageable page){
-        return pacienteRepository.findAllByAtivoTrue(page).map(DadosListagemPaciente::new);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity detalhar(@PathVariable Long id) {
-        var paciente = this.pacienteRepository.getReferenceById(id);
-        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
+    public ResponseEntity<Page<DadosListagemPaciente>> ListarAtivos(@PageableDefault(size = 10, sort = {"nome"}) Pageable page){
+        return ResponseEntity.ok(pacienteRepository.findAllByAtivoTrue(page).map(DadosListagemPaciente::new));
     }
 
     @PutMapping
@@ -52,14 +51,22 @@ public class PacienteController {
 
     @Transactional
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id){
+    public ResponseEntity deletar(@PathVariable Long id){
         pacienteRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @Transactional
     @DeleteMapping("inativar/{id}")
-    public void inativar(@PathVariable Long id){
+    public ResponseEntity inativar(@PathVariable Long id){
         Paciente paciente = this.pacienteRepository.getReferenceById(id);
         paciente.excluir();
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var paciente = this.pacienteRepository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 }
