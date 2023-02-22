@@ -444,7 +444,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nome\":\"Ricardo Martins\",\n    \"email\":\"ricardo.martins@voll.med.com\",\n    \"telefone\":\"912348765\",\n    \"crm\":\"123456\",\n    \"especialidade\":\"GINECOLOGIA\",\n    \"endereco\":{\n        \"logradouro\":\"rua 1\",\n        \"bairro\":\"bairro\",\n        \"cep\":\"12345678\",\n        \"cidade\":\"São Paulo\",\n        \"uf\":\"SP\",\n        \"numero\":\"327\",\n        \"complemento\":\"casa\"\n    }\n}",
+									"raw": "{\n    \"nome\":\"Ricardo Martins\",\n    \"email\":\"ricardo.martins@voll.med\",\n    \"telefone\":\"912348765\",\n    \"crm\":\"123456\",\n    \"especialidade\":\"GINECOLOGIA\",\n    \"endereco\":{\n        \"logradouro\":\"rua 1\",\n        \"bairro\":\"bairro\",\n        \"cep\":\"12345678\",\n        \"cidade\":\"São Paulo\",\n        \"uf\":\"SP\",\n        \"numero\":\"327\",\n        \"complemento\":\"casa\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -760,7 +760,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"login\":\"ricardo.martins@voll.med.com\",\r\n    \"senha\":\"123456\"\r\n}",
+									"raw": "{\r\n    \"login\": \"ricardo.martins@voll.med\",\r\n    \"senha\": \"123456\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
