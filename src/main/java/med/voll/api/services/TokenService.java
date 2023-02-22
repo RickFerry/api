@@ -18,7 +18,7 @@ public class TokenService {
 
     public String gerarToken(Usuario usuario) {
         try {
-            return JWT.create().withIssuer("API voll.med").withSubject(usuario.getLogin()).withExpiresAt(dataExpiracao()).sign(Algorithm.HMAC256(secret));
+            return JWT.create().withIssuer("API Voll.med").withSubject(usuario.getLogin()).withExpiresAt(dataExpiracao()).sign(Algorithm.HMAC256(secret));
         } catch (JWTCreationException ex) {
             throw new RuntimeException("Erro ao gerar o token!", ex);
         }
@@ -26,7 +26,7 @@ public class TokenService {
 
     public String getSubject(String tokenJWT){
         try {
-            return JWT.require(Algorithm.HMAC256(secret)).withIssuer("API voll.med").build().verify(tokenJWT).getSubject();
+            return JWT.require(Algorithm.HMAC256(secret)).withIssuer("API Voll.med").build().verify(tokenJWT).getSubject();
         }catch (JWTCreationException ex){
             throw new RuntimeException("Token invalido ou expirado!");
         }
