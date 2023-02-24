@@ -11,4 +11,5 @@ public record DadosAgendamentoConsulta(
         Long idPaciente,
         @NotNull
         @Future
-        LocalDateTime data) {}
+        LocalDateTime data,
+        Especialidade especialidade) {}

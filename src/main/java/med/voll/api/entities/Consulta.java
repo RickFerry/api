@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "consultas")
 @Entity(name = "Consulta")
 public class Consulta {
