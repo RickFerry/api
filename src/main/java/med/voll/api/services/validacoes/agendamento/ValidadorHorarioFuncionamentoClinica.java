@@ -1,4 +1,4 @@
-package med.voll.api.services.utils;
+package med.voll.api.services.validacoes.agendamento;
 
 import med.voll.api.entities.DadosAgendamentoConsulta;
 import med.voll.api.infra.exceptions.ValidacaoException;
@@ -17,5 +17,7 @@ public class ValidadorHorarioFuncionamentoClinica implements ValidadorAgendament
         if (domingo || antesDaAberturaDaClinica || depoisDoEncerramentoDaClinica) {
             throw new ValidacaoException("Consulta fora do horário de funcionamento da clínica");
         }
+
     }
+
 }

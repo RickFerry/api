@@ -1,4 +1,4 @@
-package med.voll.api.services.utils;
+package med.voll.api.services.validacoes.agendamento;
 
 import med.voll.api.entities.DadosAgendamentoConsulta;
 import med.voll.api.infra.exceptions.ValidacaoException;
@@ -18,4 +18,5 @@ public class ValidadorMedicoComOutraConsultaNoMesmoHorario implements ValidadorA
             throw new ValidacaoException("Médico já possui outra consulta agendada nesse mesmo horário");
         }
     }
+
 }

@@ -24,7 +24,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("Oooooiiiiii....");
         String tokenJWT = recuperarToken(request);
         if (tokenJWT != null) {
             var subject = tokenService.getSubject(tokenJWT);
@@ -32,7 +31,6 @@ public class SecurityFilter extends OncePerRequestFilter {
             var authenticated = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authenticated);
         }
-        System.out.println("Fuuuuiiii....");
         filterChain.doFilter(request, response);
     }
 

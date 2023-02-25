@@ -1,6 +1,7 @@
 package med.voll.api.controllers;
 
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voll.api.entities.*;
 import med.voll.api.repositories.MedicoRepository;
@@ -17,6 +18,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("medicos")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
     @Autowired
