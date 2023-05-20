@@ -21,4 +21,4 @@ A aplicação consiste em expor uma api para uma clinica medica, onde seria poss
 
 Ricardo Ferreira Martins
 
-[https://www.linkedin.com/in/wmazoni](https://www.linkedin.com/in/ricardo-ferreira-martins-9a688214b/)
+https://www.linkedin.com/in/ricardo-ferreira-martins-9a688214b/
