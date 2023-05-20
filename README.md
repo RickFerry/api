@@ -3,12 +3,9 @@
 
 # Sobre o projeto
 
-VollMed API é um projeto **ALURA**, organizado POR [odrigo Caneppele](https://github.com/rcaneppele "GitHub").
+VollMed API é um projeto **ALURA**, organizado por [Rodrigo Caneppele](https://github.com/rcaneppele "GitHub").
 
 A aplicação consiste em expor uma api para uma clinica medica, onde seria possivel realizar um CRUD com recursos como de MEDICO< CONSULTA E PACIENTE
-
-## Modelo conceitual
-![Modelo Conceitual](https://github.com/acenelio/assets/raw/main/sds1/modelo-conceitual.png)
 
 # Tecnologias utilizadas
 ## Back end
@@ -19,7 +16,6 @@ A aplicação consiste em expor uma api para uma clinica medica, onde seria poss
 - Maven
 
 # Como executar o projeto
-
 
 # Autor
 
