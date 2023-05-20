@@ -5,7 +5,7 @@
 
 VollMed API é um projeto **ALURA**, organizado por [Rodrigo Caneppele](https://github.com/rcaneppele "GitHub").
 
-A aplicação consiste em expor uma api para uma clinica medica, onde seria possivel realizar um CRUD com recursos como de MEDICO< CONSULTA E PACIENTE
+A aplicação consiste em expor uma api para uma clinica medica, onde seria possivel realizar CRUD com recursos tipo: MEDICO, CONSULTA E PACIENTE
 
 # Tecnologias utilizadas
 ## Back end
