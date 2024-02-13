@@ -4,25 +4,18 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "pacientes")
 @Entity(name = "Paciente")
-public class Paciente {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nome;
-    private String email;
-    private String telefone;
+public class Paciente extends Pessoa {
     private String cpf;
-    @Embedded
-    private Endereco endereco;
-    private Boolean ativo;
 
     public Paciente() {
+        super();
     }
 
     public Paciente(DadosCadastroPaciente dados) {
+        super();
         this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
@@ -32,18 +25,6 @@ public class Paciente {
     }
 
     public void atualizarInformacoes(DadosAtualizacaoPaciente dados) {
-        if (dados.nome() != null) {
-            this.nome = dados.nome();
-        }
-        if (dados.telefone() != null) {
-            this.telefone = dados.telefone();
-        }
-        if (dados.endereco() != null) {
-            this.endereco.atualizarInformacoes(dados.endereco());
-        }
-    }
-
-    public void excluir() {
-        this.ativo = false;
+        super.atualizarInformacoes(dados.nome(), dados.telefone(), dados.endereco());
     }
 }

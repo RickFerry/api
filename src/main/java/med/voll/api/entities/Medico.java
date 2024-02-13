@@ -1,28 +1,23 @@
 package med.voll.api.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
-@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "medicos")
 @Entity(name = "Medico")
-public class Medico {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nome;
-    private String email;
-    private String telefone;
+public class Medico extends Pessoa {
     private String crm;
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
-    @Embedded
-    private Endereco endereco;
-    private Boolean ativo;
+
+    public Medico() {
+        super();
+    }
 
     public Medico(DadosCadastroMedico dados) {
+        super();
         this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
@@ -33,18 +28,6 @@ public class Medico {
     }
 
     public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
-        if (dados.nome() != null) {
-            this.nome = dados.nome();
-        }
-        if (dados.telefone() != null) {
-            this.telefone = dados.telefone();
-        }
-        if (dados.endereco() != null) {
-            this.endereco.atualizarInformacoes(dados.endereco());
-        }
-    }
-
-    public void excluir() {
-        this.ativo = false;
+        super.atualizarInformacoes(dados.nome(), dados.telefone(), dados.endereco());
     }
 }
