@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/vollmed_api.mv.db

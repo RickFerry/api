@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voll.api.entities.*;
 import med.voll.api.repositories.MedicoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -21,12 +20,16 @@ import java.net.URI;
 @SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
-    @Autowired
-    private MedicoRepository medicoRepository;
+    private final MedicoRepository medicoRepository;
+
+    public MedicoController(MedicoRepository medicoRepository) {
+        this.medicoRepository = medicoRepository;
+    }
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastro(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<DadosDetalhamentoMedico> cadastro(
+            @RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriComponentsBuilder) {
         Medico medico = new Medico(dados);
         medicoRepository.save(medico);
         URI uri = uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
@@ -34,18 +37,18 @@ public class MedicoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemMedico>> Listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable page){
+    public ResponseEntity<Page<DadosListagemMedico>> Listar(@PageableDefault(sort = {"nome"}) Pageable page){
         return ResponseEntity.ok(medicoRepository.findAll(page).map(DadosListagemMedico::new));
     }
 
     @GetMapping("/ativos")
-    public ResponseEntity<Page<DadosListagemMedico>> ListarAtivos(@PageableDefault(size = 10, sort = {"nome"}) Pageable page){
+    public ResponseEntity<Page<DadosListagemMedico>> ListarAtivos(@PageableDefault(sort = {"nome"}) Pageable page){
         return ResponseEntity.ok(medicoRepository.findAllByAtivoTrue(page).map(DadosListagemMedico::new));
     }
 
     @PutMapping
     @Transactional
-    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados) {
+    public ResponseEntity<DadosDetalhamentoMedico> atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados) {
         Medico medico = medicoRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
         return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));

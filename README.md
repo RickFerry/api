@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-VollMed API é um projeto **ALURA**, organizado por [Rodrigo Caneppele](https://github.com/rcaneppele "GitHub").
+VollMed API é um projeto **FREELA**, organizado por [Ricardo Martins](https://github.com/RickFerry "GitHub").
 
 A aplicação consiste em expor uma api para uma clinica medica, onde seria possivel realizar CRUD com recursos tipo: MEDICO, CONSULTA E PACIENTE
 
