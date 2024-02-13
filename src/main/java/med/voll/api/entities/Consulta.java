@@ -1,7 +1,9 @@
 package med.voll.api.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -25,8 +27,4 @@ public class Consulta {
     @Column(name = "motivo_cancelamento")
     @Enumerated(EnumType.STRING)
     private MotivoCancelamento motivoCancelamento;
-
-    public void cancelar(MotivoCancelamento motivo) {
-        this.motivoCancelamento = motivo;
-    }
 }
