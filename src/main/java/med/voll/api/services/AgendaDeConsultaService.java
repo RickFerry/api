@@ -6,7 +6,6 @@ import med.voll.api.repositories.ConsultaRepository;
 import med.voll.api.repositories.MedicoRepository;
 import med.voll.api.repositories.PacienteRepository;
 import med.voll.api.services.validacoes.agendamento.ValidadorAgendamentoDeConsulta;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,14 +13,17 @@ import java.util.List;
 @Service
 public class AgendaDeConsultaService {
 
-    @Autowired
-    private List<ValidadorAgendamentoDeConsulta> validadores;
-    @Autowired
-    private ConsultaRepository consultaRepository;
-    @Autowired
-    private MedicoRepository medicoRepository;
-    @Autowired
-    private PacienteRepository pacienteRepository;
+    private final List<ValidadorAgendamentoDeConsulta> validadores;
+    private final ConsultaRepository consultaRepository;
+    private final MedicoRepository medicoRepository;
+    private final PacienteRepository pacienteRepository;
+
+    public AgendaDeConsultaService(List<ValidadorAgendamentoDeConsulta> validadores, ConsultaRepository consultaRepository, MedicoRepository medicoRepository, PacienteRepository pacienteRepository) {
+        this.validadores = validadores;
+        this.consultaRepository = consultaRepository;
+        this.medicoRepository = medicoRepository;
+        this.pacienteRepository = pacienteRepository;
+    }
 
     public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados) {
         Medico medico = medicoRepository.findById(dados.idMedico()).orElse(escolherMedico(dados));

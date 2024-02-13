@@ -3,14 +3,16 @@ package med.voll.api.services.validacoes.agendamento;
 import med.voll.api.entities.DadosAgendamentoConsulta;
 import med.voll.api.infra.exceptions.ValidacaoException;
 import med.voll.api.repositories.MedicoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta {
 
-    @Autowired
-    private MedicoRepository repository;
+    private final MedicoRepository repository;
+
+    public ValidadorMedicoAtivo(MedicoRepository repository) {
+        this.repository = repository;
+    }
 
     public void validar(DadosAgendamentoConsulta dados) {
         //escolha do medico opcional

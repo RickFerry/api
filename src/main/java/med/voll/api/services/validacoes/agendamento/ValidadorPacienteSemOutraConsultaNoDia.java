@@ -3,14 +3,16 @@ package med.voll.api.services.validacoes.agendamento;
 import med.voll.api.entities.DadosAgendamentoConsulta;
 import med.voll.api.infra.exceptions.ValidacaoException;
 import med.voll.api.repositories.ConsultaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ValidadorPacienteSemOutraConsultaNoDia implements ValidadorAgendamentoDeConsulta {
 
-    @Autowired
-    private ConsultaRepository repository;
+    private final ConsultaRepository repository;
+
+    public ValidadorPacienteSemOutraConsultaNoDia(ConsultaRepository repository) {
+        this.repository = repository;
+    }
 
     public void validar(DadosAgendamentoConsulta dados) {
         var primeiroHorario = dados.data().withHour(7);
