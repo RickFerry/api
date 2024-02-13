@@ -1,4 +1,6 @@
-package med.voll.api.entities;
+package med.voll.api.entities.dto;
+
+import med.voll.api.entities.model.Consulta;
 
 import java.time.LocalDateTime;
 

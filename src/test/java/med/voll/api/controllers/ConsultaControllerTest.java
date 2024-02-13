@@ -1,8 +1,8 @@
 package med.voll.api.controllers;
 
-import med.voll.api.entities.DadosAgendamentoConsulta;
-import med.voll.api.entities.DadosDetalhamentoConsulta;
-import med.voll.api.entities.Especialidade;
+import med.voll.api.entities.dto.DadosAgendamentoConsulta;
+import med.voll.api.entities.dto.DadosDetalhamentoConsulta;
+import med.voll.api.entities.enums.Especialidade;
 import med.voll.api.services.AgendaDeConsultaService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

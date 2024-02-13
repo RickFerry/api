@@ -1,9 +1,11 @@
-package med.voll.api.entities;
+package med.voll.api.entities.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import med.voll.api.entities.dto.DadosAtualizacaoPaciente;
+import med.voll.api.entities.dto.DadosCadastroPaciente;
 
 @Data
 @EqualsAndHashCode(callSuper = true)

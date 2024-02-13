@@ -1,6 +1,11 @@
 package med.voll.api.controllers;
 
-import med.voll.api.entities.*;
+import med.voll.api.entities.dto.DadosCadastroMedico;
+import med.voll.api.entities.dto.DadosDetalhamentoMedico;
+import med.voll.api.entities.dto.DadosEndereco;
+import med.voll.api.entities.enums.Especialidade;
+import med.voll.api.entities.model.Endereco;
+import med.voll.api.entities.model.Medico;
 import med.voll.api.repositories.MedicoRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

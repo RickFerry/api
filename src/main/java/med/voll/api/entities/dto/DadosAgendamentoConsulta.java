@@ -1,7 +1,8 @@
-package med.voll.api.entities;
+package med.voll.api.entities.dto;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
+import med.voll.api.entities.enums.Especialidade;
 
 import java.time.LocalDateTime;
 

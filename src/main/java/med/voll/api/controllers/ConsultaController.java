@@ -3,8 +3,8 @@ package med.voll.api.controllers;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
-import med.voll.api.entities.DadosAgendamentoConsulta;
-import med.voll.api.entities.DadosDetalhamentoConsulta;
+import med.voll.api.entities.dto.DadosAgendamentoConsulta;
+import med.voll.api.entities.dto.DadosDetalhamentoConsulta;
 import med.voll.api.services.AgendaDeConsultaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;

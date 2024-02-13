@@ -1,6 +1,10 @@
 package med.voll.api.services;
 
-import med.voll.api.entities.*;
+import med.voll.api.entities.dto.DadosAgendamentoConsulta;
+import med.voll.api.entities.dto.DadosDetalhamentoConsulta;
+import med.voll.api.entities.model.Consulta;
+import med.voll.api.entities.model.Medico;
+import med.voll.api.entities.model.Paciente;
 import med.voll.api.infra.exceptions.ValidacaoException;
 import med.voll.api.repositories.ConsultaRepository;
 import med.voll.api.repositories.MedicoRepository;

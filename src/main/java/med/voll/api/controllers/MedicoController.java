@@ -3,7 +3,11 @@ package med.voll.api.controllers;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
-import med.voll.api.entities.*;
+import med.voll.api.entities.dto.DadosAtualizacaoMedico;
+import med.voll.api.entities.dto.DadosCadastroMedico;
+import med.voll.api.entities.dto.DadosDetalhamentoMedico;
+import med.voll.api.entities.dto.DadosListagemMedico;
+import med.voll.api.entities.model.Medico;
 import med.voll.api.repositories.MedicoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

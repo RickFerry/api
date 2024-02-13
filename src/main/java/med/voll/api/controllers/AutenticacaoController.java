@@ -2,9 +2,9 @@ package med.voll.api.controllers;
 
 
 import jakarta.validation.Valid;
-import med.voll.api.entities.DadosAutenticacao;
-import med.voll.api.entities.DadosTokenJWT;
-import med.voll.api.entities.Usuario;
+import med.voll.api.entities.dto.DadosAutenticacao;
+import med.voll.api.entities.dto.DadosTokenJWT;
+import med.voll.api.entities.model.Usuario;
 import med.voll.api.services.TokenService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

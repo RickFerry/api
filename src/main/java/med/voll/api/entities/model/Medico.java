@@ -1,4 +1,4 @@
-package med.voll.api.entities;
+package med.voll.api.entities.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -6,6 +6,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import med.voll.api.entities.dto.DadosAtualizacaoMedico;
+import med.voll.api.entities.dto.DadosCadastroMedico;
+import med.voll.api.entities.enums.Especialidade;
 
 @Data
 @EqualsAndHashCode(callSuper = true)

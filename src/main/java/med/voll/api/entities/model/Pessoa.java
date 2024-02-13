@@ -1,8 +1,9 @@
-package med.voll.api.entities;
+package med.voll.api.entities.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import med.voll.api.entities.dto.DadosEndereco;
 
 @Data
 @NoArgsConstructor

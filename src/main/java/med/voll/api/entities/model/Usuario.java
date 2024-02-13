@@ -1,4 +1,4 @@
-package med.voll.api.entities;
+package med.voll.api.entities.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

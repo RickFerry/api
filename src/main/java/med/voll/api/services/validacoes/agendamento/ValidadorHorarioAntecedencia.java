@@ -1,6 +1,6 @@
 package med.voll.api.services.validacoes.agendamento;
 
-import med.voll.api.entities.DadosAgendamentoConsulta;
+import med.voll.api.entities.dto.DadosAgendamentoConsulta;
 import med.voll.api.infra.exceptions.ValidacaoException;
 import org.springframework.stereotype.Component;
 

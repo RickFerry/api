@@ -1,6 +1,12 @@
 package med.voll.api.repositories;
 
-import med.voll.api.entities.*;
+import med.voll.api.entities.dto.DadosCadastroMedico;
+import med.voll.api.entities.dto.DadosCadastroPaciente;
+import med.voll.api.entities.dto.DadosEndereco;
+import med.voll.api.entities.enums.Especialidade;
+import med.voll.api.entities.model.Consulta;
+import med.voll.api.entities.model.Medico;
+import med.voll.api.entities.model.Paciente;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
