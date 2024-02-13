@@ -41,12 +41,12 @@ public class MedicoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemMedico>> Listar(@PageableDefault(sort = {"nome"}) Pageable page){
+    public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(sort = {"nome"}) Pageable page){
         return ResponseEntity.ok(medicoRepository.findAll(page).map(DadosListagemMedico::new));
     }
 
     @GetMapping("/ativos")
-    public ResponseEntity<Page<DadosListagemMedico>> ListarAtivos(@PageableDefault(sort = {"nome"}) Pageable page){
+    public ResponseEntity<Page<DadosListagemMedico>> listarAtivos(@PageableDefault(sort = {"nome"}) Pageable page){
         return ResponseEntity.ok(medicoRepository.findAllByAtivoTrue(page).map(DadosListagemMedico::new));
     }
 
