@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta {
-
     private final MedicoRepository repository;
 
     public ValidadorMedicoAtivo(MedicoRepository repository) {
@@ -21,9 +20,8 @@ public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta {
         }
 
         var medicoEstaAtivo = repository.findAtivoById(dados.idMedico());
-        if (!medicoEstaAtivo) {
+        if (Boolean.FALSE.equals(medicoEstaAtivo)) {
             throw new ValidacaoException("Consulta não pode ser agendada com médico excluído");
         }
     }
-
 }
