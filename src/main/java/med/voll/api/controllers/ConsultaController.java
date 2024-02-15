@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("consultas")
 @SecurityRequirement(name = "bearer-key")
 public class ConsultaController {
-
     private final AgendaDeConsultaService agendaDeConsultaService;
 
     public ConsultaController(AgendaDeConsultaService agendaDeConsultaService) {
@@ -30,8 +29,7 @@ public class ConsultaController {
 
     @DeleteMapping
     @Transactional
-    public ResponseEntity<Object> cancelarConsulta(
-            @RequestBody @Valid DadosCancelamentoConsulta dados) {
+    public ResponseEntity<Object> cancelarConsulta(@RequestBody @Valid DadosCancelamentoConsulta dados) {
         agendaDeConsultaService.cancelarConsulta(dados);
         return ResponseEntity.noContent().build();
     }

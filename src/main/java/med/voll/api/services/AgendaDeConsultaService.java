@@ -18,14 +18,16 @@ import java.util.List;
 
 @Service
 public class AgendaDeConsultaService {
-
     private final List<ValidadorAgendamentoDeConsulta> validadores;
     private final ConsultaRepository consultaRepository;
     private final MedicoRepository medicoRepository;
     private final PacienteRepository pacienteRepository;
     private final List<ValidadorCancelamentoDeConsulta> validadoresCancelamento;
 
-    public AgendaDeConsultaService(List<ValidadorAgendamentoDeConsulta> validadores, ConsultaRepository consultaRepository, MedicoRepository medicoRepository, PacienteRepository pacienteRepository, List<ValidadorCancelamentoDeConsulta> validadoresCancelamento) {
+    public AgendaDeConsultaService(
+            List<ValidadorAgendamentoDeConsulta> validadores, ConsultaRepository consultaRepository,
+            MedicoRepository medicoRepository, PacienteRepository pacienteRepository,
+            List<ValidadorCancelamentoDeConsulta> validadoresCancelamento) {
         this.validadores = validadores;
         this.consultaRepository = consultaRepository;
         this.medicoRepository = medicoRepository;
@@ -41,13 +43,6 @@ public class AgendaDeConsultaService {
         return new DadosDetalhamentoConsulta(new Consulta(null, medico, paciente, dados.data(), null));
     }
 
-    private Medico escolherMedico(DadosAgendamentoConsulta dados) {
-        if (dados.especialidade() == null) {
-            throw new ValidacaoException("Especialidade é obrigatoria.");
-        }
-        return medicoRepository.escolherMedicoAleatorioLivreNaData(dados.especialidade(), dados.data());
-    }
-
     public void cancelarConsulta(DadosCancelamentoConsulta dados) {
         if (!consultaRepository.existsById(dados.idConsulta())) {
             throw new ValidacaoException("Id da consulta informado não existe!");
@@ -57,5 +52,12 @@ public class AgendaDeConsultaService {
 
         var consulta = consultaRepository.getReferenceById(dados.idConsulta());
         consulta.cancelar(dados.motivo());
+    }
+
+    private Medico escolherMedico(DadosAgendamentoConsulta dados) {
+        if (dados.especialidade() == null) {
+            throw new ValidacaoException("Especialidade é obrigatoria.");
+        }
+        return medicoRepository.escolherMedicoAleatorioLivreNaData(dados.especialidade(), dados.data());
     }
 }
