@@ -14,7 +14,6 @@ public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta {
     }
 
     public void validar(DadosAgendamentoConsulta dados) {
-        //escolha do medico opcional
         if (dados.idMedico() == null) {
             return;
         }
